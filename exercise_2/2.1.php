@@ -54,7 +54,7 @@ $products[] = ['product_name' => 'Холодильник Донбасс',
 
 function displayProduct(string $name = "", int $category = 0,
                         int $count = 0, string $description = "",
-                        float $price = 0, float $discount = 0.0, int $admin)
+                        float $price = 0.0, float $discount = 0.0, int $admin)
 {
     $error = "";
 
