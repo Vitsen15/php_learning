@@ -61,8 +61,8 @@ function checkSeparator(array $separators, string $char)
 }
 
 /**
- * @param string $word
- * @return array
+ * @param string $word to separate
+ * @return array of consonants
  */
 function separateWordByVowels(string $word)
 {
