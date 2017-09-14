@@ -15,23 +15,25 @@ $connection = DBConnection();
 $tables = [];
 
 $tables[] = "CREATE TABLE Products (
+product_id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
 product_size VARCHAR(30) NOT NULL,
-product_count INT(2) UNSIGNED NOT NULL,
+product_count INT UNSIGNED NOT NULL,
 product_color VARCHAR(50),
 product_price DECIMAL(5, 2) NOT NULL,
 product_category VARCHAR(255) NOT NULL
 )";
 
 $tables[] = "CREATE TABLE Customers (
-name VARCHAR(30) NOT NULL,
-surname VARCHAR(30) NOT NULL,
-phone_number VARCHAR(15)
+customer_id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+customer_name VARCHAR(30) NOT NULL,
+customer_surname VARCHAR(30) NOT NULL,
+customer_phone_number VARCHAR(15)
 )";
 
 $tables[] = "CREATE TABLE Orders (
-product VARCHAR(30) NOT NULL,
-customer VARCHAR(30) NOT NULL,
-product_count INT(2)
+customer_id INT UNSIGNED PRIMARY KEY,
+product_id INT UNSIGNED PRIMARY KEY,
+product_count INT UNSIGNED NOT NULL
 )";
 
 fillDB($tables, $connection);
