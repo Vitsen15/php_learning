@@ -53,8 +53,9 @@ $userInfoQuery = "SELECT users.name, users.surname, users.age, players.nickname,
                         INNER JOIN classes ON players.id_class = classes.id";
 
 $moreOftenUsedClassQuery = "SELECT classes.name
-                              FROM classes INNER JOIN players ON classes.id = (SELECT players.id_class, count(players.id_class) as cnt
-                                FROM players GROUP BY players.id_class desc limit 1)";
+                              FROM classes WHERE classes.id IN
+                                                 (SELECT count(players.id_class)
+                                                    FROM players WHERE id_class=4)";
 
 $userByAge = DBQuery($connection, $userByAgeQuery);
 showUserByAge($userByAge);
