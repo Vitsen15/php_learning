@@ -14,9 +14,8 @@ $dbuser = "root";
 $dbpass = "";
 $dataBase = "lab_6";
 
-$connection = DBConnection($dbhost, $dbuser, $dbpass, $dataBase);
-
-$queries = [];
+//set up DB and fill the variables above to connect
+//$connection = DBConnection($dbhost, $dbuser, $dbpass, $dataBase);
 
 $userByAgeQuery = "SELECT name, surname, age FROM users  WHERE age<23";
 
@@ -57,58 +56,29 @@ $moreOftenUsedClassQuery = "SELECT classes.name
                                                  (SELECT count(players.id_class)
                                                     FROM players WHERE id_class=4)";
 
-$userByAge = DBQuery($connection, $userByAgeQuery);
-showUserByAge($userByAge);
+$theMostRepeatedClsaaQuery = "SELECT classes.name
+                              FROM classes
+                              WHERE classes.id
+                                  IN (
+                                    SELECT players.id_class
+                                    FROM players
+                                    GROUP BY players.id_class
+                                    HAVING count(*) = (
+                                      SELECT count(*)
+                                      FROM players
+                                      GROUP BY players.id_class
+                                      ORDER BY count(*) DESC
+                                      LIMIT 1)
+                                  )";
 
-$averageLvl = DBQuery($connection, $averageLvlQuery);
-showAverageLvl($averageLvl);
+//uncomment this function to get query result example
+//$userByAge = DBQuery($connection, $userByAgeQuery);
 
-$highestLvlCharacterClass = DBQuery($connection, $highestLvlCharacterClassQuery);
-showMaxLvlPlayerClass($highestLvlCharacterClass);
 
 
 function DBQuery($connection, $query)
 {
     return $result = mysqli_query($connection, $query);
-}
-
-function showUserByAge($result)
-{
-    if (mysqli_num_rows($result) > 0) {
-        // output data of each row
-        while ($row = mysqli_fetch_assoc($result)) {
-            echo "Name: " . $row["name"] . ", Surname: " . $row["surname"] . ", age: " . $row["age"] . "<br>";
-        }
-    } else {
-        echo "0 results";
-    }
-}
-
-function showAverageLvl($result)
-{
-    if (mysqli_num_rows($result) > 0) {
-        // output data of each row
-        while ($row = mysqli_fetch_assoc($result)) {
-            echo "Average: " . $row["avg_lvl"] . "<br>";
-
-        }
-    } else {
-        echo "0 results";
-    }
-}
-
-function showMaxLvlPlayerClass($result)
-{
-    if (mysqli_num_rows($result) > 0) {
-        // output data of each row
-        while ($row = mysqli_fetch_assoc($result)) {
-//            echo "Average: " . $row["AVG(lvl)"] ."<br>";
-            var_dump($row);
-
-        }
-    } else {
-        echo "0 results";
-    }
 }
 
 ?>
