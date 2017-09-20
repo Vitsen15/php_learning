@@ -9,9 +9,19 @@
 </head>
 <body>
 <?php
-include 'assets/db_connection.php';
-//include 'exercise_5/5.1.php';
-include 'exercise_9/9.1.php';
+include_once 'laptop.php';
+
+$userInput = 'Я делаю домашнее задание по PHP';
+
+$myLaptop = new Laptop();
+
+echo $myLaptop->getIsOpenedString();
+
+$myLaptop->openLaptop();
+
+$myLaptop->pressPowerButton();
+$myLaptop->typeOnKeyboard($userInput);
+
 ?>
 </body>
 </html>
