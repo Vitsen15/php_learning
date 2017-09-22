@@ -9,10 +9,17 @@
 </head>
 <body>
 <?php
-include 'assets/db_connection.php';
-//include 'exercise_5/5.1.php';
-//include 'exercise_9/9.1.php';
-include 'exercise_10/10.1.php';
+include_once 'PleasureBoat.php';
+
+$pleasureBoat = new PleasureBoat(100, 500, 5, 200);
+
+$pleasureBoat->liftAnchor();
+$pleasureBoat->startEngine();
+$pleasureBoat::showPleasureBoatName();
+$pleasureBoat->stopEngine();
+$pleasureBoat->dropAnchor();
+$pleasureBoat->peoplesAmount = 0;
+$pleasureBoat::showEngineType();
 ?>
 </body>
 </html>
