@@ -9,7 +9,11 @@
 </head>
 <body>
 <?php
-include 'PleasureCaterHandler.php';
+include_once 'PleasureCater.php';
+
+$cater =  new PleasureCater(1000);
+
+echo $cater->showPeopleAmount();
 
 ?>
 </body>
