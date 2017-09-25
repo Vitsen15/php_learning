@@ -9,7 +9,7 @@
 </head>
 <body>
 <?php
-include_once 'PleasureBoat.php';
+include_once 'PleasureIBoat.php';
 
 $pleasureBoat = new PleasureBoat(100, 500, 5, 200);
 
