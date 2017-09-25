@@ -1,7 +1,7 @@
 <?php
 include_once 'Engine.php';
 
-class Boat extends CaterEngine
+class Boat extends Engine
 {
 
     protected $mass;
