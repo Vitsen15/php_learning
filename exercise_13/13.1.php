@@ -9,14 +9,17 @@
 </head>
 <body>
 <?php
-include 'assets/db_connection.php';
-//include 'exercise_5/5.1.php';
-//include 'exercise_9/9.1.php';
-//include 'exercise_10/10.1.php';
-include 'exercise_11/11.1.php';
-//include 'exercise_12/12.1.php';
-//include 'exercise_13/13.1.php';
+include 'BallPen.php';
 
+$myPen = new BallPen();
+
+$input = 'aslkjdhldfkjghflkdjghfsjdkhgjskldfhgjklfds';
+
+echo $myPen->getRod() . '<br>';
+$myPen->write($input);
+echo $myPen->getRod() . '<br>';
+$myPen->setRod(10);
+echo $myPen->getRod();
 ?>
 </body>
 </html>

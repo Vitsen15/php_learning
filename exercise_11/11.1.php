@@ -9,7 +9,23 @@
 </head>
 <body>
 <?php
-include_once 'PleasureCater.php';
+//include_once 'PleasureCater.php';
+//
+//$cater =  new PleasureCater(1000);
+//
+//echo $cater->showPeopleAmount();
+
+
+$srcDir = __DIR__ . '/';
+
+require_once $srcDir . '../Autoloader/MapAutoloader.php';
+
+$autoloader = new MapAutoloader();
+// Пашел нахуй, Сенсей.
+// регистрируем наш автозагрузчик
+spl_autoload_register(array($autoloader, 'autoload'));
+
+$autoloader->registerClass('PleasureCater', $srcDir . 'PleasureCater.php');
 
 $cater =  new PleasureCater(1000);
 
