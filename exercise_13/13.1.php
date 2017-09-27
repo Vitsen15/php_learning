@@ -41,7 +41,7 @@ $anotherPen = new BallPen();
 //============ 7 ===========
 echo compareObjects($myPen, $anotherPen)  . '<br>';
 //========== 8 =============
-$linkToPen = $anotherPen;
+$linkToPen = &$anotherPen;
 $linkToPen->setRod(20);
 //========== 9 ============
 echo $linkToPen->getRod();
