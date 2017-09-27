@@ -3,7 +3,6 @@
 class MapAutoloader
 {
 
-    // карта соответствий названий классов и файлов где они хранятся
     protected $classesMap = [];
 
     public function registerClass($className, $absolutePath)

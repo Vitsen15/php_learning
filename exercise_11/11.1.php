@@ -22,7 +22,6 @@ require_once $srcDir . '../Autoloader/MapAutoloader.php';
 
 $autoloader = new MapAutoloader();
 // Пашел нахуй, Сенсей.
-// регистрируем наш автозагрузчик
 spl_autoload_register(array($autoloader, 'autoload'));
 
 $autoloader->registerClass('PleasureCater', $srcDir . 'PleasureCater.php');
